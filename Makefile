@@ -40,6 +40,7 @@ LIBS =
 # define the C source files
 SRCS = main.cpp 	\
 	   lexer.cpp 	\
+	   token.cpp	\
 	   util.cpp		\
 
 # define the C object files 
