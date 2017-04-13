@@ -10,6 +10,8 @@
 
 #include <iostream>
 
+#include <stdio.h>
+
 // Define token type
 typedef enum _TokenType
 {
