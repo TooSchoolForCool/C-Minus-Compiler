@@ -14,10 +14,10 @@
 typedef enum _TokenType
 {
 	// Reserved Words
-	ELSE, IF, INT, RETURN, VOID, WHILE,
+	ELSE, IF, INT, FLOAT, RETURN, VOID, WHILE,
 
 	// Some more complex token type
-	ID, NUMBER,
+	ID, INT_NUMBER, REAL_NUMBER,
 
 	// Some basic operators
 	PLUS, MINUS, TIMES, DIVIDE, LT, LTE, GT, GTE, EQ,
@@ -41,15 +41,26 @@ protected:
 	int line_number_;
 };
 
-class Number: public Token
+class Integer: public Token
 {
 public:
-	Number(TokenType token_type, int token_value, int line_number);
-	~Number();
+	Integer(TokenType token_type, std::string token_string, int line_number);
+	~Integer();
 	int getValue();
 
 private:
 	int token_value_;
+};
+
+class RealNumber: public Token
+{
+public:
+	RealNumber(TokenType token_type, std::string token_string, int line_number);
+	~RealNumber();
+	double getValue();
+
+private:
+	double token_value_;
 };
 
 class Word: public Token
@@ -62,7 +73,7 @@ public:
 class Identifier: public Token
 {
 public:
-	Identifier(TokenType token_type, std::string token_value, int line_number);
+	Identifier(TokenType token_type, std::string token_string, int line_number);
 	~Identifier();
 	std::string getID();
 

@@ -13,10 +13,10 @@ using namespace std;
 
 string TokenName[] = {
 	// Reserved words
-	"ELSE", "IF", "INT", "RETURN", "VOID", "WHILE",
+	"ELSE", "IF", "INT", "FLOAT", "RETURN", "VOID", "WHILE",
 
 	// Some more complex token type
-	"ID", "NUMBER",
+	"ID", "INT_NUMBER", "REAL_NUMBER", 
 
 	// Some basic operators
 	"PLUS", "MINUS", "TIMES", "DIVIDE", "LT", "LTE", "GT", "GTE", "EQ",
@@ -43,24 +43,69 @@ int Token::getLineNumber()
 }
 
 /**
- * Number
+ * Integer
  */
-Number::Number(TokenType token_type, int token_value, int line_number)
+Integer::Integer(TokenType token_type, string token_string, int line_number)
 {
 	token_type_ = token_type;
-	token_value_ = token_value;
 	line_number_ = line_number;
+
+	int tmp = 0;
+	for(int i = 0; i < token_string.length(); i++)
+	{
+		tmp = tmp * 10 + token_string[i] - '0';
+	}
+	
+	token_value_ = tmp;
 }
 
-Number::~Number()
+Integer::~Integer()
 {
 	// nop
 }
 
-int Number::getValue()
+int Integer::getValue()
 {
 	return token_value_;
 }
+
+/**
+ * RealNumber
+ */
+RealNumber::RealNumber(TokenType token_type, std::string token_string, int line_number)
+{
+	token_type_ = token_type;
+	line_number_ = line_number;
+
+	double tmp = 0.0;
+	double scaler = 10.0;
+	int i = 0;
+	
+	for(i = 0; i < token_string.length(); i++)
+	{
+		if(token_string[i] == '.')
+			break;
+		tmp = tmp * 10 + token_string[i] - '0';
+	}
+	for(i = i + 1; i < token_string.length(); i++)
+	{
+		tmp += (token_string[i] - '0') / scaler;
+		scaler *= 10;
+	}
+
+	token_value_ = tmp;
+}
+
+RealNumber::~RealNumber()
+{
+	// nop
+}
+
+double RealNumber::getValue()
+{
+	return token_value_;
+}
+
 
 /**
  * Word
@@ -79,11 +124,11 @@ Word::~Word()
 /**
  * Identifier
  */
-Identifier::Identifier(TokenType token_type, string token_value, int line_number)
+Identifier::Identifier(TokenType token_type, string token_string, int line_number)
 {
 	token_type_ = token_type;
 	line_number_ = line_number;
-	token_value_ = token_value;
+	token_value_ = token_string;
 }
 
 Identifier::~Identifier()
