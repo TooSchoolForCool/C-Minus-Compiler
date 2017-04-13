@@ -1,3 +1,6 @@
+# object file folder
+obj/
+
 # Compiled Object files
 *.slo
 *.lo
@@ -28,3 +31,4 @@
 *.out
 *.app
 launch
+cc

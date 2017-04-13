@@ -42,6 +42,7 @@ SRCS = main.cpp 	\
 	   lexer.cpp 	\
 	   token.cpp	\
 	   util.cpp		\
+	   error.cpp	\
 
 # define the C object files 
 #
@@ -54,7 +55,7 @@ SRCS = main.cpp 	\
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
 # define the executable file 
-TARGET = launch
+TARGET = cc
 
 #
 # The following part of the makefile is generic; it can be used to 
