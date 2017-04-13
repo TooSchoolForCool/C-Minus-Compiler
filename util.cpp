@@ -1,3 +1,10 @@
+/*********************************************************************
+ * MODULE: util.cpp
+ * PURPOSE: Implement functions defined in util.h
+ * AUTHER: Zeyu Zhang
+ * DATE STARTED: 2017-04-14
+ *********************************************************************/
+
 #include "util.h"
 
 using namespace std;
