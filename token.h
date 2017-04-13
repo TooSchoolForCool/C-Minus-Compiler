@@ -25,7 +25,7 @@ typedef enum _TokenType
 	RSQUAREBRA, LBRACE, RBRACE
 }TokenType;
 
-extern string TokenName[];
+extern std::string TokenName[];
 
 class Token
 {
