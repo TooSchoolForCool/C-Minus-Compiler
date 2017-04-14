@@ -9,6 +9,22 @@
 
 using namespace std;
 
+/**
+ * Command Line Arguments define here
+ */
+#define HELP 				'h'
+#define LEX 				'l'
+#define OBJ					'o'
+#define TRACE_DESTRUCTOR	1001
+#define TRACE_TOKEN			1002
+
+char short_opts[] = "hl:o:";
+static struct option long_opts[] = {
+	{"help", no_argument, NULL, HELP},
+	{"TraceDestructor", no_argument, NULL, TRACE_DESTRUCTOR},
+	{"TraceToken", no_argument, NULL, TRACE_TOKEN}
+};
+
 void printToken(Token *token)
 {
 	TokenType token_type = token->getTokenType();
@@ -53,4 +69,55 @@ void freeTokens(vector<Token *> &src)
 	{
 		delete *iter;
 	}
+}
+
+void parseArgs(int argc, char **argv)
+{
+	int opt;
+	int opt_index;
+
+	while( (opt = getopt_long(argc, argv, short_opts, long_opts, &opt_index)) != EOF )
+	{
+		switch(opt)
+		{
+			case HELP:
+				usage();
+				break;
+			case LEX:
+				mode = LEX_ANALYSIS;
+				strcpy(src_file_path, optarg);
+				break;
+			case OBJ:
+				strcpy(dst_file_path, optarg);
+				break;
+			case TRACE_DESTRUCTOR:
+				TraceDestructor = true;
+				break;
+			case TRACE_TOKEN:
+				TraceToken = true;
+				break;
+			default:
+				char msg[512];
+				sprintf(msg, "[util.cpp parseArgs()] no such option '-%s'", argv[opt_index]);
+				error(msg);
+				break;
+		}
+	}
+}
+
+void usage()
+{
+	string out = "";
+
+	out += "OVERVIEW: C-MINUS compiler\n\n";
+	out += "USAGE: ./cc [options] <inputs>\n\n";
+	out += "OPTIONS:\n";
+
+	cout << out << endl;
+	exit(0);
+}
+
+void LexicalAnalysis()
+{
+	cout << "lexical analysis" << endl;
 }
