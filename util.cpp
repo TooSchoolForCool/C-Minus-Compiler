@@ -106,10 +106,10 @@ void usage()
 	out += "args in [] is optional, args in <> is mandatory\n\n";
 
 	out += "OPTIONS:\n";
-	out += "-h                    Print helping mannual\n";
+	out += "-h                    Print helping manual\n";
 	out += "-l <file name>        Lexical analyze on target file\n";
 	out += "-o <out file name>    Define output file name\n";
-	out += "--help                Print helping mannual\n";
+	out += "--help                Print helping manual\n";
 	out += "--TraceToken          Trace token scanner\n";
 	out += "--TraceDestructor     Trace EVERY class destructor\n";
 
