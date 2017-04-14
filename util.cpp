@@ -25,40 +25,31 @@ static struct option long_opts[] = {
 	{"TraceToken", no_argument, NULL, TRACE_TOKEN}
 };
 
-void printToken(Token *token)
+void printToken(FILE *out, Token *token)
 {
 	TokenType token_type = token->getTokenType();
 	
 	Integer *integer_token = (Integer *)token;
 	RealNumber *real_number_token = (RealNumber *)token;
-	// Word *word_token = (Word *)token;
+	Word *word_token = (Word *)token;
 	Identifier *id_token = (Identifier *)token;
 
-	printf("line %-6d\t%-20s", token->getLineNumber(), TokenName[token_type].c_str());
+	fprintf(out, "line %-6d\t%-20s", token->getLineNumber(), TokenName[token_type].c_str());
 
 	switch(token_type)
 	{
 		case ID:
-			printf("%s\n", id_token->getID().c_str());
+			fprintf(out, "%s\n", id_token->getID().c_str());
 			break;
 		case INT_NUMBER:
-			printf("%d\n", integer_token->getValue());
+			fprintf(out, "%d\n", integer_token->getValue());
 			break;
 		case REAL_NUMBER:
-			printf("%lf\n", real_number_token->getValue());
+			fprintf(out, "%lf\n", real_number_token->getValue());
 			break;
 		default:
-			printf("%s\n", id_token->getID().c_str());
+			fprintf(out, "%s\n", word_token->getValue().c_str());
 			break;
-	}
-}
-
-void printTokens(vector<Token *> &src)
-{
-	for(vector<Token *>::iterator iter = src.begin();
-		iter != src.end(); iter++)
-	{
-		printToken(*iter);
 	}
 }
 
@@ -117,7 +108,26 @@ void usage()
 	exit(0);
 }
 
-void LexicalAnalysis()
+void LexicalAnalysis(const char *src, const char *dst)
 {
-	cout << "lexical analysis" << endl;
+	Lexer lexer(src);
+	Token *token;
+
+	FILE *out = stdout;
+
+	if(dst[0] != '\0')
+	{
+		out = fopen(dst, "w");
+	}
+
+	while( (token = lexer.getToken()) )
+	{
+		printToken(out, token);
+		delete token;
+	}
+
+	if(dst[0] != '\0')
+	{
+		fclose(out);
+	}
 }

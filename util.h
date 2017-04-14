@@ -21,12 +21,11 @@
 #include <getopt.h>
 #include <string.h>
 
-void printToken(Token *token);
-void printTokens(std::vector<Token *> &src);
+void printToken(FILE *out, Token *token);
 void freeTokens(std::vector<Token *> &src);
 void parseArgs(int argc, char **argv);
 void usage();
 
-void LexicalAnalysis();
+void LexicalAnalysis(const char *src, const char *dst);
 
 #endif	// UTIL_H
