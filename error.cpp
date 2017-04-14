@@ -1,3 +1,10 @@
+/*********************************************************************
+ * MODULE: error.cpp
+ * PURPOSE: Implement error reporting functions defined in error.h
+ * AUTHER: Zeyu Zhang
+ * DATE STARTED: 2017-04-14
+ *********************************************************************/
+
 #include "error.h"
 
 using namespace std;

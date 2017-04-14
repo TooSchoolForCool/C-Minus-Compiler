@@ -11,9 +11,12 @@
 #include "token.h"
 
 #include <iostream>
+#include <vector>
 
 #include <stdio.h>
 
 void printToken(Token *token);
+void printTokens(std::vector<Token *> &src);
+void freeTokens(std::vector<Token *> &src);
 
 #endif	// UTIL_H

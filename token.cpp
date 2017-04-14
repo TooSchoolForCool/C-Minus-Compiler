@@ -61,7 +61,7 @@ Integer::Integer(TokenType token_type, string token_string, int line_number)
 
 Integer::~Integer()
 {
-	printf("Free Integer Token:\tline %d\t%-15s\t%d\n", line_number_,
+	printf("Free Integer Token:\tline %-6d\t%-20s%d\n", line_number_,
 		TokenName[token_type_].c_str(), token_value_);
 }
 
@@ -99,7 +99,7 @@ RealNumber::RealNumber(TokenType token_type, std::string token_string, int line_
 
 RealNumber::~RealNumber()
 {
-	printf("Free RealNumber Token:\tline %d\t%-15s\t%lf\n", line_number_,
+	printf("Free RealNumber Token:\tline %-6d\t%-20s%lf\n", line_number_,
 		TokenName[token_type_].c_str(), token_value_);
 }
 
@@ -121,7 +121,7 @@ Word::Word(TokenType token_type, string token_string, int line_number)
 
 Word::~Word()
 {
-	printf("Free Word Token:\tline %d\t%-15s\t%s\n", line_number_,
+	printf("Free Word Token:\tline %-6d\t%-20s%s\n", line_number_,
 		TokenName[token_type_].c_str(), token_value_.c_str());
 }
 
@@ -142,7 +142,7 @@ Identifier::Identifier(TokenType token_type, string token_string, int line_numbe
 
 Identifier::~Identifier()
 {
-	printf("Free Identifier Token:\tline %d\t%-15s\t%s\n", line_number_,
+	printf("Free Identifier Token:\tline %-6d\t%-20s%s\n", line_number_,
 		TokenName[token_type_].c_str(), token_value_.c_str());
 }
 

@@ -27,6 +27,7 @@ typedef enum _TokenType
 	RSQUAREBRA, LBRACE, RBRACE
 }TokenType;
 
+// extern variable in file token.cpp
 extern std::string TokenName[];
 
 class Token
