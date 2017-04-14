@@ -101,8 +101,17 @@ void usage()
 	string out = "";
 
 	out += "OVERVIEW: C-MINUS compiler\n\n";
-	out += "USAGE: ./cc [options] <inputs>\n\n";
+
+	out += "USAGE: ./cc [options]\n";
+	out += "args in [] is optional, args in <> is mandatory\n\n";
+
 	out += "OPTIONS:\n";
+	out += "-h                    Print helping mannual\n";
+	out += "-l <file name>        Lexical analyze on target file\n";
+	out += "-o <out file name>    Define output file name\n";
+	out += "--help                Print helping mannual\n";
+	out += "--TraceToken          Trace token scanner\n";
+	out += "--TraceDestructor     Trace EVERY class destructor\n";
 
 	cout << out << endl;
 	exit(0);
