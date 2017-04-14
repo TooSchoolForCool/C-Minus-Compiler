@@ -356,6 +356,12 @@ Token *Lexer::getToken()
 		ret = new Word(cur_token_type, token_buffer, cur_line_number_);
 	}
 
+	if(TraceToken)
+	{
+		printf("[TraceToken] line %-6d\t%-16s%s\n", cur_line_number_,
+			TokenName[cur_token_type].c_str(), token_buffer.c_str());
+	}
+
 	return ret;
 }
 
