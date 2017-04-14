@@ -16,14 +16,15 @@
 
 typedef enum _CompilerMode
 {
+	NOP,
 	LEX_ANALYSIS
 }CompilerMode;
 
 // read in source file path
-extern std::string src_file_path;
+extern char src_file_path[1024];
 
 // output target file path
-extern std::string dst_file_path;
+extern char dst_file_path[1024];
 
 /**
  * Trace all destructors, check if all alloced memory are released
@@ -33,8 +34,17 @@ extern bool TraceDestructor;
 
 /**
  * Trace Token Scanner
- * This variable will be used in `getToken()` in file 'lexer.cpp'
+ * This variable will be used in
+ *		`getToken()` in file 'lexer.cpp'
  */
 extern bool TraceToken;
+
+/**
+ * Determine what compiler gonna do
+ * This variable will be used in:
+ * 		`main()` in file `main.cpp`
+ *		`parseArgs()` in file `util.cpp`
+ */
+extern CompilerMode mode;
 
 #endif	// GLOBALS_H
