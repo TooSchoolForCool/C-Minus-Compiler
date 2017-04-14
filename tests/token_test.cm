@@ -1,3 +1,4 @@
+/*Some basic test cases*/
 else if int float return void while
 ELSE IF INT FLOAT RETURN VOID WHILE
 _123_	num_1	num2
@@ -6,4 +7,14 @@ _123_	num_1	num2
 num_3 num4 132 final_test
 
 
-asd
+/*special operator test cases*/
++ - * / < <= > >= == != = ; , () [] {}
++-*/<>=
+
+
+/*some tricky test cases*/
+123.123/********/asd
+if(ret == 123.456/10)
+
+
+/*Error Test*/
