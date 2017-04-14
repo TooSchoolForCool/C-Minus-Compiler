@@ -61,8 +61,11 @@ Integer::Integer(TokenType token_type, string token_string, int line_number)
 
 Integer::~Integer()
 {
-	printf("Free Integer Token:\tline %-6d\t%-20s%d\n", line_number_,
-		TokenName[token_type_].c_str(), token_value_);
+	if(TraceDestructor)
+	{
+		printf("[TraceDestructor] Free Token:\tline %-6d\t%-20s%d\n", line_number_,
+			TokenName[token_type_].c_str(), token_value_);
+	}
 }
 
 int Integer::getValue()
@@ -99,8 +102,11 @@ RealNumber::RealNumber(TokenType token_type, std::string token_string, int line_
 
 RealNumber::~RealNumber()
 {
-	printf("Free RealNumber Token:\tline %-6d\t%-20s%lf\n", line_number_,
-		TokenName[token_type_].c_str(), token_value_);
+	if(TraceDestructor)
+	{
+		printf("[TraceDestructor] Free Token:\tline %-6d\t%-20s%lf\n", line_number_,
+			TokenName[token_type_].c_str(), token_value_);
+	}
 }
 
 double RealNumber::getValue()
@@ -121,8 +127,11 @@ Word::Word(TokenType token_type, string token_string, int line_number)
 
 Word::~Word()
 {
-	printf("Free Word Token:\tline %-6d\t%-20s%s\n", line_number_,
-		TokenName[token_type_].c_str(), token_value_.c_str());
+	if(TraceDestructor)
+	{
+		printf("[TraceDestructor] Free Token:\tline %-6d\t%-20s%s\n", line_number_,
+			TokenName[token_type_].c_str(), token_value_.c_str());
+	}
 }
 
 string Word::getValue()
@@ -142,8 +151,11 @@ Identifier::Identifier(TokenType token_type, string token_string, int line_numbe
 
 Identifier::~Identifier()
 {
-	printf("Free Identifier Token:\tline %-6d\t%-20s%s\n", line_number_,
-		TokenName[token_type_].c_str(), token_value_.c_str());
+	if(TraceDestructor)
+	{
+		printf("[TraceDestructor] Free Token:\tline %-6d\t%-20s%s\n", line_number_,
+			TokenName[token_type_].c_str(), token_value_.c_str());
+	}
 }
 
 string Identifier::getID()

@@ -34,6 +34,11 @@ Lexer::Lexer(const char *file_path)
 Lexer::~Lexer()
 {
 	file_in_.close();
+	
+	if(TraceDestructor)
+	{
+		cout << "[TraceDestructor] Lexer destoried, file closed." << endl;
+	}
 }
 
 Token *Lexer::getToken()

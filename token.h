@@ -8,6 +8,8 @@
 #ifndef TOKEN_H
 #define TOKEN_H
 
+#include "globals.h"
+
 #include <iostream>
 
 #include <stdio.h>

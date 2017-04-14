@@ -9,6 +9,7 @@
 #define LEXER_H
 
 #include "token.h"
+#include "globals.h"
 #include "error.h"
 
 #include <iostream>
