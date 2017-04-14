@@ -32,7 +32,7 @@ void printToken(Token *token)
 			printf("%lf\n", real_number_token->getValue());
 			break;
 		default:
-			printf("-\n");
+			printf("%s\n", id_token->getID().c_str());
 			break;
 	}
 }

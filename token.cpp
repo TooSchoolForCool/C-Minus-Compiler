@@ -112,16 +112,22 @@ double RealNumber::getValue()
 /**
  * Word
  */
-Word::Word(TokenType token_type, int line_number)
+Word::Word(TokenType token_type, string token_string, int line_number)
 {
 	token_type_ = token_type;
+	token_value_ = token_string;
 	line_number_ = line_number;
 }
 
 Word::~Word()
 {
-	printf("Free Word Token:\tline %d\t%-15s\t-\n", line_number_,
-		TokenName[token_type_].c_str());
+	printf("Free Word Token:\tline %d\t%-15s\t%s\n", line_number_,
+		TokenName[token_type_].c_str(), token_value_.c_str());
+}
+
+string Word::getValue()
+{
+	return token_value_;
 }
 
 /**

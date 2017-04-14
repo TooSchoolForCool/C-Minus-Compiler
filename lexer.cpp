@@ -315,31 +315,31 @@ Token *Lexer::getToken()
 	{
 		if(token_buffer == "else")
 		{
-			ret = new Word(ELSE, cur_line_number_);
+			ret = new Word(ELSE, token_buffer,cur_line_number_);
 		}
 		else if(token_buffer == "if")
 		{
-			ret = new Word(IF, cur_line_number_);
+			ret = new Word(IF, token_buffer, cur_line_number_);
 		}
 		else if(token_buffer == "int")
 		{
-			ret = new Word(INT, cur_line_number_);
+			ret = new Word(INT, token_buffer, cur_line_number_);
 		}
 		else if(token_buffer == "float")
 		{
-			ret = new Word(FLOAT, cur_line_number_);
+			ret = new Word(FLOAT, token_buffer, cur_line_number_);
 		}
 		else if(token_buffer == "return")
 		{
-			ret = new Word(RETURN, cur_line_number_);
+			ret = new Word(RETURN, token_buffer, cur_line_number_);
 		}
 		else if(token_buffer == "void")
 		{
-			ret = new Word(VOID, cur_line_number_);
+			ret = new Word(VOID, token_buffer, cur_line_number_);
 		}
 		else if(token_buffer == "while")
 		{
-			ret = new Word(WHILE, cur_line_number_);
+			ret = new Word(WHILE, token_buffer, cur_line_number_);
 		}
 		else
 		{
@@ -348,7 +348,7 @@ Token *Lexer::getToken()
 	}
 	else
 	{
-		ret = new Word(cur_token_type, cur_line_number_);
+		ret = new Word(cur_token_type, token_buffer, cur_line_number_);
 	}
 
 	return ret;

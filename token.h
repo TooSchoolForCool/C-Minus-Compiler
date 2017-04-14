@@ -68,8 +68,12 @@ private:
 class Word: public Token
 {
 public:
-	Word(TokenType token_type, int line_number);
+	Word(TokenType token_type, std::string token_string, int line_number);
 	~Word();
+	std::string getValue();
+
+private:
+	std::string token_value_;
 };
 
 class Identifier: public Token
