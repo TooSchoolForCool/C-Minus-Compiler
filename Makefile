@@ -66,7 +66,7 @@ TARGET = cc
 .PHONY: depend clean run
 
 all: $(TARGET)
-	@echo launch has been succesfully compiled
+	@echo $(TARGET) has been succesfully compiled
 
 $(TARGET): $(OBJS) 
 	$(CC) $(CFLAGS) $(INCLUDES) -o $(TARGET) $(OBJS) $(LFLAGS) $(LIBS)

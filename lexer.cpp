@@ -297,11 +297,11 @@ Token *Lexer::getToken()
 				sprintf(msg, "Unexpected error in lexer.cpp getToken(): previous state: %d, current char: %c", state, ch);
 				error(msg);
 				break;
-		}	// Out of state switch structure
+		}	// END of state switch structure
 
 		if(save_cur_char)
 			token_buffer.push_back(ch);
-	}
+	}	// End of while(state != OVER)
 
 	if(cur_token_type == REAL_NUMBER)
 	{
