@@ -1,11 +1,11 @@
 /*********************************************************************
- * MODULE: util.cpp
- * PURPOSE: Implement functions defined in util.h
+ * MODULE: utils.cpp
+ * PURPOSE: Implement functions defined in utils.h
  * AUTHER: Zeyu Zhang
  * DATE STARTED: 2017-04-14
  *********************************************************************/
 
-#include "util.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -64,6 +64,9 @@ void freeTokens(vector<Token *> &src)
 
 void parseArgs(int argc, char **argv)
 {
+	if(argc == 1)
+		usage();
+
 	int opt;
 	int opt_index;
 
@@ -89,7 +92,7 @@ void parseArgs(int argc, char **argv)
 				break;
 			default:
 				char msg[512];
-				sprintf(msg, "[util.cpp parseArgs()] no such option '-%s'", argv[opt_index]);
+				sprintf(msg, "[utils.cpp parseArgs()] no such option '-%s'", argv[opt_index]);
 				error(msg);
 				break;
 		}

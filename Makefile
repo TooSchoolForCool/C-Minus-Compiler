@@ -41,7 +41,7 @@ LIBS =
 SRCS = main.cpp 	\
 	   lexer.cpp 	\
 	   token.cpp	\
-	   util.cpp		\
+	   utils.cpp		\
 	   error.cpp	\
 
 # define the C object files 

@@ -20,13 +20,10 @@ This project is a compiler for **C-MINUS** language. Although C-MINUS is a super
 
 **Identifier & Numbers**
 
-ID = letter letter*
-
-NUM = digit digit* .? digit*
-
-letter = [a-zA-Z]
-
-digit = [0-9]
+- ID = letter letter*
+- NUM = digit digit* .? digit*
+- letter = [a-zA-Z]
+- digit = [0-9]
 
 
 
@@ -72,3 +69,8 @@ For more detail and other commands, please check the helping manual which could 
 ./cc --help
 ```
 
+
+
+******
+
+**Zeyu Zhang @Hunan University, China**

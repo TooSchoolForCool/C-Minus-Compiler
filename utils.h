@@ -1,5 +1,5 @@
 /*********************************************************************
- * MODULE: util.h
+ * MODULE: utils.h
  * PURPOSE: Some utility functions are implemented here
  *			Functions in this file will be used in main.cpp
  * AUTHER: Zeyu Zhang

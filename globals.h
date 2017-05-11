@@ -43,7 +43,7 @@ extern bool TraceToken;
  * Determine what compiler gonna do
  * This variable will be used in:
  * 		`main()` in file `main.cpp`
- *		`parseArgs()` in file `util.cpp`
+ *		`parseArgs()` in file `utils.cpp`
  */
 extern CompilerMode mode;
 
