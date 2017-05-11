@@ -55,7 +55,7 @@ SRCS = main.cpp 	\
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
 # define the executable file 
-TARGET = cc
+TARGET = cmc
 
 #
 # The following part of the makefile is generic; it can be used to 
